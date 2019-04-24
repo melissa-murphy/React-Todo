@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 
-const toDoItems = [
+const todoItems = [
   {
     task: "Organize Garage",
     id: 1528817077286,
@@ -19,7 +19,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      toDoItemsOnState: toDoItems,
+      toDoItemsOnState: todoItems,
       item: {
         task: '',
         id: '',
