@@ -1,7 +1,9 @@
 import React from "react";
+import TodoList from "./components/TodoComponents/TodoList";
+
 import "./App.css";
 
-const todoItems = [
+const todoList = [
   {
     task: "Organize Garage",
     id: 1528817077286,
@@ -19,7 +21,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      toDoItemsOnState: todoItems,
+      todoList: todoList,
       item: {
         task: "",
         id: "",
@@ -33,6 +35,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <TodoList TodoList={this.state.todo} />
       </div>
     );
   }

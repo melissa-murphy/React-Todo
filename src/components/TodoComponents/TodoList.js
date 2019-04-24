@@ -3,21 +3,14 @@
 import React from "react";
 import Todo from "./Todo";
 
-
-
 function TodoList(props) {
   return (
     <div>
-
-
-        {props.todoList.map(todoItem => (
-          <Todo 
-          todo={todoItem}
-          key={todoItem.task} />
-        ))}
-      
+      {props.todoList.map(todo => (
+        <Todo todo={todo} key={todo.task} />
+      ))}
     </div>
-}
+  );
 }
 
 export default TodoList;
