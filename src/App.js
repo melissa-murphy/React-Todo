@@ -1,6 +1,4 @@
 import React from "react";
-
-
 import "./App.css";
 
 const todoItems = [
@@ -35,7 +33,6 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        
       </div>
     );
   }
