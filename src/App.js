@@ -21,11 +21,11 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoList: todoList,
+      taskItemsOnState: todoList,
       item: {
         task: "",
-        id: "",
-        completed: ""
+        id: 0,
+        completed: false
       }
     };
   }
@@ -35,7 +35,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList TodoList={this.state.todo} />
+        <TodoList todoList={this.state.taskItemsOnState} />
       </div>
     );
   }
