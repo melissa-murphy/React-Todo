@@ -24,7 +24,7 @@ class App extends React.Component {
     this.state = {
       tasksOnState: tasksTemplate,
       task: {
-        description: '',
+        taskName: '',
         id: '',
         completed: false
       }
@@ -44,14 +44,14 @@ class App extends React.Component {
     event.preventDefault();
     console.log(this.state.tasksOnState);
     const newTask = {
-      description: this.state.task.description,
+      taskName: this.state.task.taskName,
       id: Date.now(),
       completed: false
     };
     this.setState({
       tasksOnState: [...this.state.tasksOnState, newTask],
       task: {
-        description: '',
+        taskName: '',
         id: '',
         completed: false
       }
@@ -67,7 +67,7 @@ class App extends React.Component {
           addTask={this.addTask}
           handleTaskChange={this.handleChanges}
           addTodo={this.addTask}
-          desc={this.state.task.description}
+          taskName={this.state.task.taskName}
         />
       </div>
     );
