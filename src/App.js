@@ -2,6 +2,7 @@ import React from "react";
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
 
+import "./App.css";
 const taskList = [
   {
     task: "Organize Garage",
@@ -63,18 +64,16 @@ class App extends React.Component {
   taskDone = id => {
     this.setState({
       tasksOnState: this.state.tasksOnState.map(item =>
-        item.id === id ? { ...item, completed: !item.completed} : item)
-    })
-  }
+        item.id === id ? { ...item, completed: !item.completed } : item
+      )
+    });
+  };
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList 
-        tasks={this.state.tasksOnState}
-        taskDone={this.taskDone}
-         />
+        <TodoList tasks={this.state.tasksOnState} taskDone={this.taskDone} />
         <TodoForm
           addTask={this.addTask}
           handleTaskChange={this.handleChanges}

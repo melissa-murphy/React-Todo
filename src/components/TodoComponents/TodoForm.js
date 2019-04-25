@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-const TodoForm = props => {
+export default function TodoForm(props) {
   return (
     <div className="todo-form">
       <form>
@@ -12,10 +12,8 @@ const TodoForm = props => {
           name="taskName"
         />
         <button onClick={props.addTodo}>add task</button>
-        <button>clear completed tasks</button>
+        <button onClick={props.taskDone}>clear completed tasks</button>
       </form>
     </div>
   );
-};
-
-export default TodoForm;
+}

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Todo(props) {
   let classNames = "item";
-  if (props.taskDone.completed) {
+  if (props.item.completed) {
     classNames += " completed";
   }
 
