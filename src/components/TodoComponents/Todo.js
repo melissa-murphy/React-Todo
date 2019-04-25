@@ -1,11 +1,17 @@
-import React from 'react';
+import React from "react";
 
-const Todo = props => {
+export default function Todo(props) {
+  let classNames = "item";
+  if (props.taskDone.completed) {
+    classNames += " completed";
+  }
+
+  function taskDoneHere() {
+    props.taskDone(props.item.id);
+  }
   return (
-    <div className="todo-element">
-      <p>{props.task.taskName}</p>
+    <div className={classNames} onClick={taskDoneHere}>
+      <p>{props.item.taskName}</p>
     </div>
   );
-};
-
-export default Todo;
+}

@@ -1,15 +1,15 @@
-import React from 'react';
-import TodoList from './components/TodoComponents/TodoList';
-import TodoForm from './components/TodoComponents/TodoForm';
+import React from "react";
+import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
 
-const tasksTemplate = [
+const taskList = [
   {
-    task: 'Organize Garage',
+    task: "Organize Garage",
     id: 1528817077286,
     completed: false
   },
   {
-    task: 'Bake Cookies',
+    task: "Bake Cookies",
     id: 1528817084358,
     completed: false
   }
@@ -22,10 +22,10 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      tasksOnState: tasksTemplate,
+      tasksOnState: taskList,
       task: {
-        taskName: '',
-        id: '',
+        taskName: "",
+        id: Date.now(),
         completed: false
       }
     };
@@ -42,7 +42,9 @@ class App extends React.Component {
 
   addTask = event => {
     event.preventDefault();
+    //
     console.log(this.state.tasksOnState);
+    //
     const newTask = {
       taskName: this.state.task.taskName,
       id: Date.now(),
@@ -51,18 +53,28 @@ class App extends React.Component {
     this.setState({
       tasksOnState: [...this.state.tasksOnState, newTask],
       task: {
-        taskName: '',
-        id: '',
+        taskName: "",
+        id: "",
         completed: false
       }
     });
   };
 
+  taskDone = id => {
+    this.setState({
+      tasksOnState: this.state.tasksOnState.map(item =>
+        item.id === id ? { ...item, completed: !item.completed} : item)
+    })
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList tasks={this.state.tasksOnState} />
+        <TodoList 
+        tasks={this.state.tasksOnState}
+        taskDone={this.taskDone}
+         />
         <TodoForm
           addTask={this.addTask}
           handleTaskChange={this.handleChanges}
