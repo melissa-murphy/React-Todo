@@ -4,41 +4,30 @@ import TodoForm from './components/TodoComponents/TodoForm';
 
 import './App.css';
 
-const todoTasks = [
-  {
-    task: 'Organize Garage',
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false
-  }
-];
-
 class App extends React.Component {
   // you will need a place to store your state in this component.
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      tasksOnState: todoTasks,
-      todoTasks: [],
-      todos: {
-        task: '',
-        id: '',
-        completed: false
-      }
-    }; // Bindings
-    this.inputChangeHandler = this.inputChangeHandler.bind(this);
+      todoTasks: [
+        {
+          task: 'Organize Garage',
+          id: 1528817077286,
+          completed: false
+        },
+        {
+          task: 'Bake Cookies',
+          id: 1528817084358,
+          completed: false
+        }
+      ],
+      todoInputDefault: ''
+    };
   } // Methods
 
   inputChangeHandler = event => {
     this.setState({
-      tasksOnState: {
-        ...this.state.todoTasks,
-        [event.target.name]: event.target.value
-      }
+      [event.target.name]: event.target.value
     });
   };
 
