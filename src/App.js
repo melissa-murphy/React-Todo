@@ -78,7 +78,25 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <h2>Welcome to your Todo App!</h2>
+        <div
+          className="navbar is-success"
+          role="navigation"
+          aria-label="main navigation"
+        >
+          <div className="navbar-brand">
+            <a
+              role="button"
+              className="navbar-burger"
+              aria-label="menu"
+              aria-expanded="false"
+            >
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+        <h2 className="is-size-2">Welcome to Evergreen!</h2>
         <TodoList tasks={this.state.tasksOnState} taskDone={this.taskDone} />
         <TodoForm
           addTask={this.addTask}
@@ -86,9 +104,20 @@ class App extends React.Component {
           addTodo={this.addTask}
           taskName={this.state.task.taskName}
         />
-        <button className="button is-small" onClick={this.clearFinishedTasks}>
+        <button
+          className="button is-medium is-fullwidth is-success"
+          onClick={this.clearFinishedTasks}
+        >
           clear completed
         </button>
+        <hr />
+        <footer className="footer has-background-info">
+          <div className="content has-text-centered ">
+            <p>
+              <strong className="has-text-white">EverGreen ToDo App</strong>
+            </p>
+          </div>
+        </footer>
       </div>
     );
   }

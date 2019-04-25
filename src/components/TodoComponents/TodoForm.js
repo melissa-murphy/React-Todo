@@ -4,8 +4,9 @@ export default function TodoForm(props) {
   return (
     <div className="todo-form">
       <form>
-      <label class="label" name="enter new task"></label>
+        <label className="label" name="enter new task" />
         <input
+          className="input"
           placeholder="enter new task"
           type="text"
           onChange={props.handleTaskChange}
@@ -13,8 +14,9 @@ export default function TodoForm(props) {
           name="taskName"
         />
         <br />
-        <button className="button is-large" onClick={props.addTodo}>add task</button>
-       
+        <button className="button is-large is-fullwidth is-primary has-text-white" onClick={props.addTodo}>
+          add task
+        </button>
       </form>
     </div>
   );
