@@ -23,27 +23,61 @@ class App extends React.Component {
     super(props);
     this.state = {
       tasksOnState: todoTasks,
-      todos: [
-        {
-          task: '',
-          id: '',
-          completed: false
-        }
-      ],
-      todo: ''
-    };
-  }
+      todoTasks: [],
+      todos: {
+        task: '',
+        id: '',
+        completed: false
+      }
+    }; // Bindings
+    this.inputChangeHandler = this.inputChangeHandler.bind(this);
+  } // Methods
 
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+  inputChangeHandler = event => {
+    this.setState({
+      tasksOnState: {
+        ...this.state.todoTasks,
+        [event.target.name]: event.target.value
+      }
+    });
+  };
+
+  // handleChanges = event => {
+  //   console.log(event.target.name);
+  //   this.setState({
+  //     student: {
+  //       ...this.state.student,
+  //       [event.target.name]: event.target.value
+  //     }
+  //   });
+  // };
+
+  addTask = event => {
+    event.preventDefault();
+    this.setState({
+      todos: [...this.state.tasksOnState, this.state.todos]
+    });
+  };
+
+  // addStudent = event => {
+  //   event.preventDefault();
+  //   this.setState({
+  //     studentsOnState: [...this.state.studentsOnState, this.state.student],
+  //     student: {}
+  //   });
+  // };
 
   render() {
     return (
       <div className="todo-list-container">
         <h2>Welcome to your Todo App!</h2>
         <TodoList todos={this.state.tasksOnState} />
-        <TodoList todos={this.state.todos} />
-        <TodoForm todos={this.state.todos} />
+        <TodoForm
+          todos={this.state.todos}
+          value={this.state.todo}
+          inputChangeHandler={this.inputChangeHandler}
+          addTask={this.addTask}
+        />
       </div>
     );
   }
