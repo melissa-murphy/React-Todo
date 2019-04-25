@@ -64,8 +64,8 @@ class App extends React.Component {
         <h2>Welcome to your Todo App!</h2>
         <TodoList tasks={this.state.tasksOnState} />
         <TodoForm
-          addDescription={this.addTask}
-          handleDescriptionChange={this.handleChanges}
+          addTask={this.addTask}
+          handleTaskChange={this.handleChanges}
           addTodo={this.addTask}
           desc={this.state.task.description}
         />
