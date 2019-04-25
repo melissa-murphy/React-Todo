@@ -77,7 +77,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <h2>Welcome to your Todo App!</h2>
         <TodoList tasks={this.state.tasksOnState} taskDone={this.taskDone} />
         <TodoForm
@@ -86,7 +86,9 @@ class App extends React.Component {
           addTodo={this.addTask}
           taskName={this.state.task.taskName}
         />
-        <button onClick={this.clearFinishedTasks}>clear completed</button>
+        <button className="button is-small" onClick={this.clearFinishedTasks}>
+          clear completed
+        </button>
       </div>
     );
   }
