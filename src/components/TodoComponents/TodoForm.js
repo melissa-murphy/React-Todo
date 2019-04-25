@@ -12,7 +12,7 @@ export default function TodoForm(props) {
           name="taskName"
         />
         <button onClick={props.addTodo}>add task</button>
-        <button onClick={props.taskDone}>clear completed tasks</button>
+       
       </form>
     </div>
   );

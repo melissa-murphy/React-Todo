@@ -69,6 +69,12 @@ class App extends React.Component {
     });
   };
 
+  clearFinishedTasks = () => {
+    this.setState({
+      tasksOnState: this.state.tasksOnState.filter(item => !item.completed)
+    });
+  };
+
   render() {
     return (
       <div>
@@ -80,6 +86,7 @@ class App extends React.Component {
           addTodo={this.addTask}
           taskName={this.state.task.taskName}
         />
+        <button onClick={this.clearFinishedTasks}>clear completed</button>
       </div>
     );
   }
