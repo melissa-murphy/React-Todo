@@ -1,2 +1,8 @@
-h2 {
-  color: red; }
+.completed {
+  background-color: rgb(165, 164, 164);
+  text-decoration: line-through;
+}
+
+hr {
+  margin-bottom:12rem;
+}
